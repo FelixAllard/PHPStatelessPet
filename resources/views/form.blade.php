@@ -45,7 +45,7 @@
                     }
                 })
                 .catch(error => {
-                    console.error("Error fetching data:", error);
+                    console.error("We got an error with finding data!", error);
                 });
 
             return false; // Prevent form submission, this prevents to go to another page :D,
@@ -56,8 +56,9 @@
 <body>
 <h2>Search Items</h2>
 <form id="searchForm" onsubmit="return searchItems()">
-    <label for="name">Enter Pet Name:</label>
+    <label for="name">Pet Name</label>
     <input type="text" id="name" name="search">
+    <br>
     <button type="submit">Search</button>
 </form>
 
