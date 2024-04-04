@@ -18,6 +18,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
 Route::get('/ext/getItems', [PageController::class,'getItems']);
 Route::get('/ext/getItems/{search}', [PageController::class,'getItem']);
 Route::post('/ext/setItems', [PageController::class,'setItem']);

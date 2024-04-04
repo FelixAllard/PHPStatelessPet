@@ -10,6 +10,7 @@ use App\Models\Item;
 
 class PageController extends Controller
 {
+    //UNUSED SO I DIDN"T MAKE A ENDPOINT
     public function setCategory(Request $request)
     {
         $fields = $request->validate([
@@ -24,7 +25,7 @@ class PageController extends Controller
 
         return response($category, 201);
     }
-
+    //UNUSED SO I DIDN"T MAKE A ENDPOINT
     public function getCategory()
     {
         $arrayCategories = Category::all();
