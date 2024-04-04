@@ -57,5 +57,9 @@ class PageController extends Controller
         $arrayItems = Item::where('name', 'LIKE', '%' . $search . '%')->get();
         return response($arrayItems, 200);
     }
+    public function showForm()
+    {
+        return view('form');
+    }
     //
 }
