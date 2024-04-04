@@ -6,40 +6,56 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;
 use App\Models\Category;
-use App\Models\Items;
+use App\Models\Item;
 
 class PageController extends Controller
 {
-    public function setCategory(Request $request){
+    public function setCategory(Request $request)
+    {
         $fields = $request->validate([
             'name' => 'required|string',
             'age' => 'required|string'
         ]);
+
         $category = Category::create([
             'name' => $fields['name'],
             'age' => $fields['age']
         ]);
-        return response($category,201);
+
+        return response($category, 201);
     }
-    public function getCategory(){
-        $arryCategories = Category::all();
-        return response($arryCategories,201);
+
+    public function getCategory()
+    {
+        $arrayCategories = Category::all();
+        return response($arrayCategories, 200);
     }
-    public fuction setItem(Request $request){
+
+    public function setItem(Request $request)
+    {
         $fields = $request->validate([
             'name' => 'required|string',
-            'age' => 'required|integer'
+            'age' => 'required|string'
         ]);
+
         $item = Item::create([
             'name' => $fields['name'],
-            'age' => $fiels['age']
+            'age' => $fields['age']
         ]);
-        return res[pmse($item,201)]
 
+        return response($item, 201);
     }
-    public function getItems(){
-        $arryItems = Item::all();
-        return reponse($arryItems,201);
+
+    public function getItems()
+    {
+        $arrayItems = Item::all();
+        return response($arrayItems, 200);
+    }
+
+    public function getItem($search)
+    {
+        $arrayItems = Item::where('name', 'LIKE', '%' . $search . '%')->get();
+        return response($arrayItems, 200);
     }
     //
 }
